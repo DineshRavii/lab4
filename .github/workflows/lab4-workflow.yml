@@ -26,7 +26,6 @@ jobs:
         - name: install npm
           run: npm install
 
-        - name: publish npm
-          run: npm publish
+        - run: npm publish
           env: 
             NODE_AUTH_TOKEN: ${{ github.token }}
