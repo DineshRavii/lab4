@@ -8,6 +8,9 @@ on:
 jobs:
     npm-package:
       runs-on: ubuntu-latest
+      permissions:
+        packages: write
+        
       # container:
       #   image: node:20
       steps:
@@ -22,3 +25,8 @@ jobs:
 
         - name: install npm
           run: npm install
+
+        - name: publish npm
+          env: 
+            NODE_AUTH_TOKEN: ${{ github.token }}
+          run: npm publish
